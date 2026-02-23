@@ -294,8 +294,4 @@ npm run dev  # Development mode with nodemon
 npm start    # Production mode
 ```
 
-## API Documentation
 
-See main README.md for complete API endpoint documentation.
->>>>>>> 09eb29d (setup the back end)
->>>>>>> 99f52285690f7ebe07712c04ebe9260449fee166
