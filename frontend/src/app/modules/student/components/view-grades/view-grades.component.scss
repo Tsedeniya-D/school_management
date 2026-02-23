@@ -1,0 +1,44 @@
+.container {
+  padding: 20px;
+}
+
+.center-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.info-card {
+  margin-bottom: 20px;
+  
+  h3 {
+    margin: 0 0 10px 0;
+  }
+}
+
+.tab-content {
+  padding: 20px 0;
+  
+  h3 {
+    margin-bottom: 20px;
+    color: #3f51b5;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 50px;
+  color: #666;
+  
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Assign Teachers & Students to {{ data.grade?.name }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="assignForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Teachers</mat-label>
+      <mat-select formControlName="teacherIds" multiple>
+        <mat-option *ngFor="let teacher of teachers" [value]="teacher._id">{{ teacher.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Students</mat-label>
+      <mat-select formControlName="studentIds" multiple>
+        <mat-option *ngFor="let student of students" [value]="student._id">{{ student.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="isLoading">
+    Assign
+  </button>
+</mat-dialog-actions>

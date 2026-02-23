@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="header">
+    <h1>Manage Teachers</h1>
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+      Add Teacher
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search teachers">
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let teacher">{{ teacher.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let teacher">{{ teacher.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="subjects">
+        <th mat-header-cell *matHeaderCellDef>Subjects</th>
+        <td mat-cell *matCellDef="let teacher">
+          <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+            <mat-chip *ngFor="let subject of teacher.subjects">{{ subject.name }}</mat-chip>
+            <span *ngIf="!teacher.subjects || teacher.subjects.length === 0">No subjects assigned</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let teacher">
+          <button mat-icon-button color="primary" (click)="openDialog(teacher)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTeacher(teacher._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <mat-spinner *ngIf="isLoading" class="center-spinner"></mat-spinner>
+</div>

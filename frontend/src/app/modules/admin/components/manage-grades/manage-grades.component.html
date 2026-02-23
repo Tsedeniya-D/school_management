@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="header">
+    <h1>Manage Grades</h1>
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+      Add Grade
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search grades">
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let grade">{{ grade.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let grade">{{ grade.description || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="teachers">
+        <th mat-header-cell *matHeaderCellDef>Teachers</th>
+        <td mat-cell *matCellDef="let grade">
+          <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+            <mat-chip *ngFor="let teacher of grade.teachers">{{ teacher.name }}</mat-chip>
+            <span *ngIf="!grade.teachers || grade.teachers.length === 0">No teachers assigned</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="students">
+        <th mat-header-cell *matHeaderCellDef>Students</th>
+        <td mat-cell *matCellDef="let grade">
+          <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+            <mat-chip *ngFor="let student of grade.students">{{ student.name }}</mat-chip>
+            <span *ngIf="!grade.students || grade.students.length === 0">No students assigned</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let grade">
+          <button mat-icon-button color="accent" (click)="openAssignDialog(grade)" matTooltip="Assign Teachers/Students">
+            <mat-icon>assignment</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="openDialog(grade)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteGrade(grade._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <mat-spinner *ngIf="isLoading" class="center-spinner"></mat-spinner>
+</div>

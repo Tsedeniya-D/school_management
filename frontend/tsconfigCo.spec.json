@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "699ad81024a82d6c8b6fce09"
+  },
+  "name": "Yom Abdela",
+  "email": "yomexample@gmail.com",
+  "password": "$2a$10$y9FJy02LCAOXEumKXWO0b.7fFz2jJb3RMTTwbUy9uZn68FL3Tr/eO",
+  "role": "Student",
+  "subjects": [],
+  "assignedStudents": [],
+  "assignedTeachers": [],
+  "createdAt": {
+    "$date": "2026-02-22T10:18:56.966Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-22T10:18:56.966Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "699ae01beb8019707fd2a3e2"
+  },
+  "name": "Admin User",
+  "email": "admin@example.com",
+  "password": "admin1234",
+  "role": "Admin"
+},
+{
+  "_id": {
+    "$oid": "699b5fafef4fd45a1490d426"
+  },
+  "name": "naf beredu",
+  "email": "nafexample@gmail.com",
+  "password": "$2a$10$CjKb2KeGtXj0YhlWBJWS9utEfmioy453qNNXN0NC5jy4Xp.25cjRu",
+  "role": "Student",
+  "subjects": [],
+  "assignedStudents": [],
+  "assignedTeachers": [],
+  "createdAt": {
+    "$date": "2026-02-22T19:57:35.407Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-22T19:57:35.407Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "699bf798bf33f4a714f6b2e3"
+  },
+  "name": "Admin User",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$2YjQE7mdVADPBTv6ISERU.4VMXfls32J33wVq.9Q5dfAwDaAqfnBi",
+  "role": "Admin",
+  "subjects": [],
+  "assignedStudents": [],
+  "assignedTeachers": [],
+  "createdAt": {
+    "$date": "2026-02-23T06:45:44.982Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-23T06:45:44.982Z"
+  },
+  "__v": 0
+}]
