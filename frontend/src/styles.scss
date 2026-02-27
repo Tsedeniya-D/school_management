@@ -1,5 +1,11 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+:root {
+  --primary-color: #010e27; /* navy */
+  --accent-color: #f5ae29;  /* lemon */
+  --text-color: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +14,16 @@
 
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #f5f5f5;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
+/* global placeholder fallback for any inputs/textareas */
+input::placeholder,
+textarea::placeholder {
+  color: #ccc !important;
+  opacity: 1;
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;

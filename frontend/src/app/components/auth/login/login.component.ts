@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import 'tslib';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; // Ensure correct import
 import { AuthService } from '../../../services/auth.service';
+// @ts-ignore
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

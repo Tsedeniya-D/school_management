@@ -23,9 +23,14 @@ export class ErrorInterceptor implements HttpInterceptor {
           errorMessage = `Error: ${error.error.message}`;
         } else {
           if (error.status === 401) {
-            this.authService.logout();
-            this.router.navigate(['/login']);
-            errorMessage = 'Session expired. Please login again.';
+            // don't treat login/register failures as expired session
+            if (req.url.includes('/auth/login') || req.url.includes('/auth/register')) {
+              errorMessage = error.error?.message || 'Invalid credentials';
+            } else {
+              this.authService.logout();
+              this.router.navigate(['/login']);
+              errorMessage = 'Session expired. Please login again.';
+            }
           } else if (error.status === 403) {
             errorMessage = error.error?.message || 'You do not have permission to access this resource.';
           } else if (error.status === 404) {

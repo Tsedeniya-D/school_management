@@ -3,14 +3,19 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: var(--primary-color); /* solid dark navy */
   padding: 20px;
 }
 
 .login-card {
-  max-width: 400px;
+  max-width: 400px; 
+  background-color: #011735; /* dark navy card background */
+  box-shadow: 0 4px 12px #052552;
   width: 100%;
   padding: 20px;
+  /* shadow for box */
+  border-radius: 8px;
+  color: var(--text-color); /* default text inside card */
 }
 
 mat-card-header {
@@ -22,16 +27,57 @@ mat-card-title h1 {
   margin: 0;
   font-size: 28px;
   font-weight: 500;
-  color: #333;
+  color: var(--accent-color); /* dark yellow title */
 }
 
 mat-card-subtitle {
   margin-top: 10px;
-  color: #666;
+  color: var(--accent-color);
 }
 
 mat-form-field {
   margin-bottom: 15px;
+  /* ensure label and input text are light on dark background */
+  color: var(--text-color);
+}
+
+/* make select value visible on dark bg */
+::ng-deep .mat-select-value-text {
+  color: var(--text-color) !important;
+}
+
+::ng-deep .mat-option {
+  color: var(--text-color) !important;
+}
+.mat-form-field-label,
+.mat-input-element,
+::ng-deep .mat-input-element,
+::ng-deep input.mat-input-element {
+  color: var(--text-color) !important;
+}
+
+/* placeholder color for Material inputs (ensure ::ng-deep so it penetrates view encapsulation) */
+::ng-deep .mat-input-element::placeholder,
+::ng-deep input.mat-input-element::placeholder,
+::ng-deep input::placeholder {
+  /* white or light grey so it’s visible but subtle */
+  color: #ccc !important;
+  opacity: 1 !important;
+}
+
+/* also target autofill text color for webkit browsers */
+::ng-deep input.mat-input-element:-webkit-autofill {
+  -webkit-text-fill-color: var(--text-color) !important;
+}
+
+/* ensure any input/textarea text is white regardless of type */
+::ng-deep input,
+::ng-deep textarea {
+  color: var(--text-color) !important;
+}
+
+.mat-form-field-underline {
+  background-color: var(--accent-color) !important;
 }
 
 .inline-spinner {
@@ -39,7 +85,8 @@ mat-form-field {
   margin-right: 10px;
 }
 
-button {
+.auth-action-btn,
+button[type="submit"] {
   margin-top: 10px;
   height: 45px;
   font-size: 16px;
@@ -51,10 +98,10 @@ button {
   
   p {
     margin: 0;
-    color: #666;
+    color: var(--text-color);
     
     a {
-      color: #3f51b5;
+      color: var(--accent-color);
       text-decoration: none;
       font-weight: 500;
       

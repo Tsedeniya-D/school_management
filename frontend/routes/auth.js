@@ -118,7 +118,7 @@ router.get('/me', protect, async (req, res) => {
     res.json({
       success: true,
       user
-    });
+    }); 
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
   }

@@ -63,7 +63,7 @@
           </mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit" class="full-width" [disabled]="isLoading || !signupForm.valid">
+        <button mat-raised-button color="primary" type="submit" class="full-width auth-action-btn" [disabled]="isLoading || !signupForm.valid">
           <mat-progress-spinner *ngIf="isLoading" diameter="20" mode="indeterminate" class="inline-spinner"></mat-progress-spinner>
           <span *ngIf="!isLoading">Sign Up</span>
         </button>
