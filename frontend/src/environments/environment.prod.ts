@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:4200/api'  // production should also point to the correct backend port
+    apiUrl: 'https://school-management-1-abca.onrender.com/api'  // production should also point to the correct backend port
   };
